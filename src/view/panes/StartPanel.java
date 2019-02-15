@@ -1,23 +1,16 @@
-package view;
+package view.panes;
 
 import view.components.GButton;
 import view.workers.Drawer;
 import javax.swing.*;
 import java.awt.*;
 
-class MainPanel extends JPanel {
+public class StartPanel extends JPanel {
 
     private Drawer mainDrawer;
 
-    MainPanel() {
-        //Styles
-        setBackground(Color.BLACK);
-
-        init();
-    }
-
-    private void init() {
-
+    public StartPanel() {
+        setOpaque(false);
     }
 
     @Override
@@ -27,12 +20,12 @@ class MainPanel extends JPanel {
         mainDrawer = new Drawer(getWidth(), getHeight());
         Graphics2D g2d = (Graphics2D) g;
 
-        int fontSize =  mainDrawer.widthToVal(3);
+        int fontSize =  mainDrawer.widthToVal(7);
 
         g2d.setFont(new Font("Constantia", Font.BOLD, fontSize));
         g2d.setColor(Color.WHITE);
         g2d.drawString("TheGame", mainDrawer.widthToVal(20), mainDrawer.widthToVal(10));
-        GButton btn = new GButton("Start", mainDrawer.widthToVal(35), mainDrawer.widthToVal(8), 50, 25);
+        GButton btn = new GButton("Start", mainDrawer.widthToVal(55), mainDrawer.widthToVal(8), 50, 25);
         btn.paint(g2d);
     }
 

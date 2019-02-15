@@ -1,6 +1,6 @@
 package controller;
 
-import view.MainWindow;
+import view.panes.MainWindow;
 
 import javax.swing.*;
 import java.awt.*;
