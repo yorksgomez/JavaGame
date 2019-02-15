@@ -3,6 +3,7 @@ package controller;
 import view.MainWindow;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Main {
 
@@ -27,6 +28,10 @@ public class Main {
             mnWindow.setVisible(true);
             System.out.println("Window showed correctly!");
         });
+
+
+        for(String s : GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames())
+            System.out.println(s);
 
     }
 

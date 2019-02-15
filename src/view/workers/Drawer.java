@@ -1,4 +1,4 @@
-package controller;
+package view.workers;
 
 public class Drawer {
 
