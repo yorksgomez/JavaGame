@@ -2,11 +2,11 @@ package view;
 
 import javax.swing.*;
 
-class MainWindow extends JFrame {
+public class MainWindow extends JFrame {
 
     private MainPanel pnMain;
 
-    MainWindow() {
+    public MainWindow() {
         setTitle("Game");
         setExtendedState(MAXIMIZED_BOTH);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
