@@ -29,10 +29,6 @@ public class Main {
             System.out.println("Window showed correctly!");
         });
 
-
-        for(String s : GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames())
-            System.out.println(s);
-
     }
 
 }
