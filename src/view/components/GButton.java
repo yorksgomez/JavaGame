@@ -1,6 +1,8 @@
 package view.components;
 
+import java.util.HashSet;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class GButton {
 
@@ -9,11 +11,13 @@ public class GButton {
     private int x, y, width, height, borderSize, textXAllign, textYAllign;
     private Color borderColor, backgroundColor, textColor;
     private Font textFont;
+    private HashSet<ActionListener> listeners;
 
     //Constructors
     public GButton(String text, int x, int y, int width, int height) {
         this.text = text;
         this.x = x;
+        listeners = new HashSet<>();
         this.y = y;
         this.width = width;
         this.height = height;
@@ -25,6 +29,10 @@ public class GButton {
     }
 
     //Methods
+    public void addActionListener(ActionListener ls) {
+        listeners.add(ls);
+    }
+
     public void paint(Graphics2D g2d) {
 
         //DrawBorder
@@ -51,6 +59,10 @@ public class GButton {
     }
 
     //Setters and getters
+    public ActionListener[] getActionListeners() {
+        return listeners.toArray(new ActionListener[0]);
+    }
+
     public String getText() {
         return text;
     }
