@@ -1,5 +1,6 @@
 package view.panes;
 
+import controller.listeners.ListenerController;
 import view.components.GButton;
 import view.workers.Drawer;
 import javax.swing.*;
@@ -8,25 +9,48 @@ import java.awt.*;
 public class StartPanel extends JPanel {
 
     private Drawer mainDrawer;
+    private GButton btn;
 
     public StartPanel() {
+
+        ListenerController c = new ListenerController(this);
+        addMouseListener(c);
+        new Timer(3000, (ev)->{
+            System.out.println("Change");
+            repaint();
+        });
+
+
         setOpaque(false);
+
+        init();
+    }
+
+    //Methods
+    private void init() {
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+
+        mainDrawer = new Drawer((int)screen.getWidth(), (int)screen.getHeight());
+        btn = new GButton("Start", mainDrawer.widthToVal(55), mainDrawer.widthToVal(8), 50, 25);
+
+        add(btn);
     }
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        mainDrawer = new Drawer(getWidth(), getHeight());
+
         Graphics2D g2d = (Graphics2D) g;
 
         int fontSize =  mainDrawer.widthToVal(7);
-
         g2d.setFont(new Font("Constantia", Font.BOLD, fontSize));
         g2d.setColor(Color.WHITE);
         g2d.drawString("TheGame", mainDrawer.widthToVal(20), mainDrawer.widthToVal(10));
-        GButton btn = new GButton("Start", mainDrawer.widthToVal(55), mainDrawer.widthToVal(8), 50, 25);
-        btn.paint(g2d);
+
+        for(Component c : getComponents())
+            c.paint(g2d);
+
     }
 
 }

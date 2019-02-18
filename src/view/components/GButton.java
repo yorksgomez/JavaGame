@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class GButton {
+public class GButton extends Component {
 
     //Variables
     private String text;
@@ -33,7 +33,10 @@ public class GButton {
         listeners.add(ls);
     }
 
-    public void paint(Graphics2D g2d) {
+    @Override
+    public void paint(Graphics g) {
+        //Creates g2d based on g
+        Graphics2D g2d = (Graphics2D) g;
 
         //DrawBorder
         g2d.setColor(borderColor);

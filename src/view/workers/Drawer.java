@@ -33,4 +33,12 @@ public class Drawer {
         return percent * max / 100;
     }
 
+    @Override
+    public String toString() {
+        return "Drawer{" +
+                "width=" + width +
+                ", height=" + height +
+                '}';
+    }
+
 }
