@@ -12,14 +12,11 @@ public class StartPanel extends JPanel {
     private GButton btn;
 
     public StartPanel() {
-
         ListenerController c = new ListenerController(this);
         addMouseListener(c);
-        new Timer(3000, (ev)->{
-            System.out.println("Change");
-            repaint();
-        });
+        addMouseMotionListener(c);
 
+        requestFocus();
 
         setOpaque(false);
 

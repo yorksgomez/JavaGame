@@ -26,6 +26,8 @@ public class GButton extends Component {
         backgroundColor = null;
         textXAllign = textYAllign = -1;
         textFont = new Font("Serif", Font.PLAIN, 12);
+
+        setName(this.text + " Button");
     }
 
     //Methods
